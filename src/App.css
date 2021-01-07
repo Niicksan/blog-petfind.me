@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +10,17 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.wrap {
+  position: relative;
+}
+
+.grid-container {
+  min-height: 100%;
+  width: 80%;
+  line-height: 1.2em;
+  margin: 0 auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
