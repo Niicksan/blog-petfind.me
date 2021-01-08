@@ -9,7 +9,6 @@ export default class DisplayAllUsers extends React.Component {
 			<>
 				<div class="main-users" >
 					{users.map((userData) => {
-						console.log(userData);
 						return (
 							<Card className="card" key={userData.id}>
                                 <Card.Header><span className="bold">User Information: </span></Card.Header>
