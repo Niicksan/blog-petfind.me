@@ -22,6 +22,9 @@ export default class Post extends React.Component {
 			    			<Card.Text className="">
 			    				By: {this.props.name}
 			    			</Card.Text>
+                            <Card.Text className="">
+			    				By: {this.props.name}
+			    			</Card.Text>
 			    		</Card.Body>
 			    	</Card>
 				</div>
