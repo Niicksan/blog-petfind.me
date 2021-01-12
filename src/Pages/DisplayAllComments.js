@@ -30,16 +30,13 @@ export default class DisplayAllCommennts extends React.Component {
 													</Card.Header>
 												<Card.Body>
 													<Card.Text className="">
-														{commentsData.name}
-													</Card.Text>
-													<Card.Text className="">
-														{commentsData.email}
+														<span className="bold">Post name: </span>{commentsData.name}
 													</Card.Text>
 													<Card.Text className="">
 														{commentsData.body}
 													</Card.Text>
 													<Card.Text className="">
-														Posted By: {usersObjects.filter(function(el){return el.email === commentsData.email})[0].name}
+													<span className="bold">Posted By: </span>{commentsData.email}
 													</Card.Text>
 												</Card.Body>
 											</Link>
