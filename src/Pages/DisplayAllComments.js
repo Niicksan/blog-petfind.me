@@ -23,11 +23,10 @@ export default class DisplayAllCommennts extends React.Component {
 									<Router>
 										<Card className="card" 
 											key={commentsData.id}
-											post={postsObject.find(post => post.id === commentsData.postId)}
 											>
 											<Link to="/posts/{postData.id}">
 												<Card.Header>
-													<span className="bold">{post.title}</span>
+													<span className="bold">{postsObject.filter(function(el){return el.id === commentsData.postId})[0].title}</span>
 													</Card.Header>
 												<Card.Body>
 													<Card.Text className="">
@@ -37,7 +36,7 @@ export default class DisplayAllCommennts extends React.Component {
 														{commentsData.email}
 													</Card.Text>
 													<Card.Text className="">
-														{postData.body}
+														{commentsData.body}
 													</Card.Text>
 													<Card.Text className="">
 														Posted By: {usersObjects.filter(function(el){return el.email === commentsData.email})[0].name}
@@ -45,13 +44,7 @@ export default class DisplayAllCommennts extends React.Component {
 												</Card.Body>
 											</Link>
 										</Card>
-										
-										<Route 
-											path='/posts/{postData.id}'
-											render={(props) => <Post {...props} 
-												post={postsObject.find(post => post.id === postData.id)} 
-												author={usersObjects.filter(function(el){return el.id === postData.userId})[0].name} 
-										/>} />
+
 									</Router>
 									);
 								})
