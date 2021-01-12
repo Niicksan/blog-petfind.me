@@ -5,6 +5,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Login from './Login'
 import DisplayAllUsers from './DisplayAllUsers';
 import DisplayAllPosts from './DisplayAllPosts';
+import DisplayAllCommennts from './DisplayAllComments';
 import NotFound from './NotFound'
 import Register from './Register'
 import Dashboard from './Dashboard'
@@ -24,10 +25,8 @@ const Navibar =() => {
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Pages" id="basic-nav-dropdown">
               <NavDropdown.Item href="/display-all-users">Display all users</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              <NavDropdown.Item href="/display-all-posts">Display all posts</NavDropdown.Item>
+              <NavDropdown.Item href="/display-all-post-comments">Display all comments</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav className="mr-right">
@@ -37,10 +36,12 @@ const Navibar =() => {
         </Navbar.Collapse>
       </Navbar>
       <Switch>
-
+        <Route exact path="/" component={DisplayAllPosts} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/display-all-users" component={DisplayAllUsers} />
+        <Route path="/display-all-posts" component={DisplayAllPosts} />
+        <Route path="/display-all-comments" component={DisplayComments} />
         <Route component={NotFound} />
       </Switch>
     </Router>;
