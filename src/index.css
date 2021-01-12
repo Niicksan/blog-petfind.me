@@ -12,9 +12,10 @@ code {
     monospace;
 }
 
+/* Users */
 .main-users {
   width: 100%;
-  margin: 2% auto;
+  margin: 3% auto;
   margin-bottom: 2em;
 }
 
@@ -35,4 +36,16 @@ code {
 
 .geo {
   padding-left: 6%;
+}
+
+/* This is a single-line comment */
+.main-posts {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 48% 48%;
+  grid-row-gap: 1.3em;
+  grid-column-gap: 1.3em;
+  line-height: 1.2em;
+  margin: 3% auto;
 }
