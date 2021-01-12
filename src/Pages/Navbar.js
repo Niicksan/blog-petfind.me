@@ -5,7 +5,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Login from './Login'
 import DisplayAllUsers from './DisplayAllUsers';
 import DisplayAllPosts from './DisplayAllPosts';
-import DisplayAllCommennts from './DisplayAllComments';
+import DisplayAllComments from './DisplayAllComments';
 import NotFound from './NotFound'
 import Register from './Register'
 import Dashboard from './Dashboard'
@@ -41,7 +41,7 @@ const Navibar =() => {
         <Route path="/register" component={Register} />
         <Route path="/display-all-users" component={DisplayAllUsers} />
         <Route path="/display-all-posts" component={DisplayAllPosts} />
-        <Route path="/display-all-comments" component={DisplayComments} />
+        <Route path="/display-all-post-comments" component={DisplayAllComments} />
         <Route component={NotFound} />
       </Switch>
     </Router>;
