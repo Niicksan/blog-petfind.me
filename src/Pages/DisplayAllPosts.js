@@ -23,7 +23,7 @@ export default class DisplayAllPosts extends React.Component {
 											key={postData.id}
 											post={postsObject.find(post => post.id === postData.id)}
 											>
-											<Link to="/posts/{postData.id}">
+
 												<Card.Header>
 													<span className="bold">{postData.title}</span>
 													</Card.Header>
@@ -35,7 +35,7 @@ export default class DisplayAllPosts extends React.Component {
 														By: {usersObjects.filter(function(el){return el.id === postData.userId})[0].name}
 													</Card.Text>
 												</Card.Body>
-											</Link>
+											
 										</Card>
 										
 										<Route 
