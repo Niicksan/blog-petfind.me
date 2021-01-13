@@ -1,5 +1,5 @@
 { 
-  "posts": [
+  "jsonPosts": [
     {
       "userId": 1,
       "id": 1,
