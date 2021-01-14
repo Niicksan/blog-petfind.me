@@ -2,13 +2,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component } from 'react'
 import { Nav, Navbar, Form, FormControl, NavDropdown, Button} from 'react-bootstrap';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Login from './Login'
 import DisplayAllUsers from './DisplayAllUsers';
 import DisplayAllPosts from './DisplayAllPosts';
 import DisplayAllComments from './DisplayAllComments';
-import NotFound from './NotFound'
 import Register from './Register'
-import Dashboard from './Dashboard'
 import '../App.css';
 import '../index.css';
 
@@ -20,9 +19,7 @@ const Navibar =() => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#home">
-            </Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+
             <NavDropdown title="Pages" id="basic-nav-dropdown">
               <NavDropdown.Item href="/display-all-users">Display all users</NavDropdown.Item>
               <NavDropdown.Item href="/display-all-posts">Display all posts</NavDropdown.Item>
@@ -35,16 +32,14 @@ const Navibar =() => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Switch>
-        <Route exact path="/" component={DisplayAllPosts} />
+
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/display-all-users" component={DisplayAllUsers} />
-        <Route path="/display-all-posts" component={DisplayAllPosts} />
-        <Route path="/display-all-post-comments" component={DisplayAllComments} />
-        <Route component={NotFound} />
-      </Switch>
+        <Route path="/display-all-users" name="displayAllusers" component={DisplayAllUsers} />
+        <Route path="/display-all-posts" name="displayAllPosts" component={DisplayAllPosts} />
+        <Route path="/display-all-post-comments" name="displayAllComments" component={DisplayAllComments} />
     </Router>;
+    
 }
 
 export default Navibar;

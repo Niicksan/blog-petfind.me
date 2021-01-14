@@ -1,16 +1,16 @@
 import '../index.css';
 import React from "react";
-import Post from './Post'
+import Post from './Posts'
 import { Card} from 'react-bootstrap';
-import { posts } from "../Jsons/posts.json";
-import { users } from "../Jsons/users.json";
+import { jsonPosts } from "../Jsons/posts.json";
+import { jsonUsers } from "../Jsons/users.json";
 import { comments } from "../Jsons/comments.json";
 import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 export default class DisplayAllCommennts extends React.Component {
 	render() {
-		const postsObject = posts;
-		const usersObjects = users;
+		const postsObject = jsonPosts;
+		const usersObjects = jsonUsers;
 		const commentsObjects = comments;
 		
 		return (

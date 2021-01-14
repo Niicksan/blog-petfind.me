@@ -1,5 +1,4 @@
 import '../index.css';
-import React from "react";
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { jsonUsers } from "../Jsons/users.json";

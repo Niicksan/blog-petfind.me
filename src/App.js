@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Navbar from './Pages/Navbar' 
 import Footer from './Pages/Footer' 
-import DisplayAllUsers from "./Pages/DisplayAllUsers";
 import DisplayAllPosts from "./Pages/DisplayAllPosts";
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
       
       <DisplayAllPosts />
 
+      <Footer />
     </>
   );
 }
