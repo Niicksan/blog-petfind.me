@@ -5,13 +5,15 @@ import './App.css';
 import Navbar from './Pages/Navbar' 
 import Footer from './Pages/Footer' 
 import DisplayAllPosts from "./Pages/DisplayAllPosts";
+import DisplayAllComments from "./Pages/DisplayAllComments";
+
 
 function App() {
   return (
     <>
       <Navbar  />
       
-      <DisplayAllPosts />
+      <DisplayAllComments />
 
       <Footer />
     </>

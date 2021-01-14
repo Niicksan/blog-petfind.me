@@ -1,55 +1,35 @@
 import '../index.css';
-import React from "react";
-import Post from './Posts'
-import { Card} from 'react-bootstrap';
-import { jsonPosts } from "../Jsons/posts.json";
-import { jsonUsers } from "../Jsons/users.json";
-import { comments } from "../Jsons/comments.json";
-import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import React, { useState } from 'react';
+import Pagination from '../Pages/Pagination'
+import Comments from "../Pages/Comments";
+import { jsonComments } from "../Jsons/comments.json";
 
-export default class DisplayAllCommennts extends React.Component {
-	render() {
-		const postsObject = jsonPosts;
-		const usersObjects = jsonUsers;
-		const commentsObjects = comments;
+const DisplayAllCommennts = () => {
+	const [comments] = useState(jsonComments); 
+	const [currentPage, setCurrentPage] = useState(1);
+	const [commentsPerPage] = useState(25);
 		
-		return (
-			<>
-				<div class="wrap">
-                	<div class="grid-container">
-						<div class="main-posts" >
-							{commentsObjects.map((commentsData) => {
-								return (
-									<Router>
-										<Card className="card" 
-											key={commentsData.id}
-											>
-											<Link to="/posts/{postData.id}">
-												<Card.Header>
-													<span className="bold">{postsObject.filter(function(el){return el.id === commentsData.postId})[0].title}</span>
-													</Card.Header>
-												<Card.Body>
-													<Card.Text className="">
-														<span className="bold">Post name: </span>{commentsData.name}
-													</Card.Text>
-													<Card.Text className="">
-														{commentsData.body}
-													</Card.Text>
-													<Card.Text className="">
-													<span className="bold">Posted By: </span>{commentsData.email}
-													</Card.Text>
-												</Card.Body>
-											</Link>
-										</Card>
+	//Get current comments
+	const indexOfLastComment = currentPage * commentsPerPage;
+	const indexOfFirstComment = indexOfLastComment - commentsPerPage;
+	const currentComments = comments.slice(indexOfFirstComment, indexOfLastComment);
 
-									</Router>
-									);
-								})
-							}
-						</div>
-					</div>
+	//Change page
+	const paginate = pageNumber => setCurrentPage(pageNumber);
+		
+	return (
+		<>
+			<div class="wrap">
+				<div class="grid-container">
+					<Comments comments={currentComments}/>
+					<Pagination 
+						postsPerPage={commentsPerPage} 
+						totalPosts={comments.length} 
+						paginate={paginate} />
 				</div>
-			</>
-		);
-	}
+			</div>
+		</>
+	);
 }
+
+export default DisplayAllCommennts;

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { jsonUsers } from "../Jsons/users.json";
 
-const Posts = ({ posts}) => {
+const Posts = ({ posts }) => {
   const [users] = useState(jsonUsers); 
 
   return (

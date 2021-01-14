@@ -1,9 +1,8 @@
 import '../index.css';
 import React, { useState } from 'react';
-import Posts from '../Pages/Posts'
 import Pagination from '../Pages/Pagination'
 import { jsonPosts } from "../Jsons/posts.json";
-import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import Posts from "../Pages/Posts";
 
 const DisplayAllPosts = () => {
 	const [posts] = useState(jsonPosts); 
