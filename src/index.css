@@ -50,6 +50,20 @@ code {
   margin: 3% auto;
 }
 
+.pagination-nav {
+  position: relative;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  margin: 5% auto;
+}
+
+.pagination {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 /* Footer */
 .foter {
   background-color: #343a40;
@@ -61,6 +75,7 @@ code {
   height: 100px;
   font-size: 1.4em;
   position: relative;
+  margin-top: 8%;
 }
 
 .foter-container {

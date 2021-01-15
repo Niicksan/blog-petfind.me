@@ -1,4 +1,3 @@
-import '../index.css';
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { jsonUsers } from "../Jsons/users.json";
@@ -7,7 +6,7 @@ const Posts = ({ posts }) => {
   const [users] = useState(jsonUsers); 
 
   return (
-    <div class="main-posts" >
+    <div className="main-posts" >
       {posts.map(post => (
         <Card className="card" key={post.id}>
           <Card.Header>

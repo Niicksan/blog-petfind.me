@@ -1,4 +1,3 @@
-import '../index.css';
 import React from "react";
 import { Card } from 'react-bootstrap';
 import { jsonUsers } from "../Jsons/users";
@@ -7,9 +6,9 @@ export default class DisplayAllUsers extends React.Component {
 	render() {
 		return (
 			<>
-                <div class="wrap">
-                    <div class="grid-container">
-                        <div class="main-users" >
+                <div className="wrap">
+                    <div className="grid-container">
+                        <div className="main-users" >
                             {jsonUsers.map((userData) => {
                                 return (
                                     <Card className="card" key={userData.id}>

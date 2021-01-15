@@ -1,11 +1,10 @@
-import '../index.css';
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 
 const Comments = ({ comments }) => {
 
   return (
-    <div class="main-posts" >
+    <div className="main-posts" >
         {comments.map(comment => (
             <Card className="card" key={comment.id}>
                 <Card.Header>

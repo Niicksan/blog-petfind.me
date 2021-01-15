@@ -1,6 +1,5 @@
-import '../index.css';
 import React, { useState } from 'react';
-import Pagination from '../Pages/Pagination'
+import CommentsPagination from '../Pages/CommentsPagination'
 import Comments from "../Pages/Comments";
 import { jsonComments } from "../Jsons/comments.json";
 
@@ -19,12 +18,12 @@ const DisplayAllCommennts = () => {
 		
 	return (
 		<>
-			<div class="wrap">
-				<div class="grid-container">
+			<div className="wrap">
+				<div className="grid-container">
 					<Comments comments={currentComments}/>
-					<Pagination 
-						postsPerPage={commentsPerPage} 
-						totalPosts={comments.length} 
+					<CommentsPagination 
+						commentsPerPage={commentsPerPage} 
+						totalComments={comments.length} 
 						paginate={paginate} />
 				</div>
 			</div>
