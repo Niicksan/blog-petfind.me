@@ -16,17 +16,23 @@ function App() {
   return (
     <>
       <Navbar  />
-      
-      <Switch>
-        <Route path={"/"} exact component={DisplayAllPosts} />
-        <Route path={"/login"} component={Login} />
-        <Route path={"/register"} component={Register} />
-        <Route path={"/not-found"} component={NotFound} />
-        <Route path={"/display-all-users"} component={DisplayAllUsers} />
-        <Route path={"/display-all-posts"} component={DisplayAllPosts} />
-        <Route path={"/display-all-post-comments"} component={DisplayAllComments} />
-      </Switch>
 
+      <div className="wrap">
+        <div className="grid-container">
+          <div className="main-users" >
+            <Switch>
+              <Route path={"/"} exact component={DisplayAllPosts} />
+              <Route path={"/login"} component={Login} />
+              <Route path={"/register"} component={Register} />
+              <Route path={"/not-found"} component={NotFound} />
+              <Route path={"/display-all-users"} component={DisplayAllUsers} />
+              <Route path={"/display-all-posts"} component={DisplayAllPosts} />
+              <Route path={"/display-all-post-comments"} component={DisplayAllComments} />
+            </Switch>
+          </div>  
+        </div>
+      </div>
+      
       <Footer />
     </>
   );

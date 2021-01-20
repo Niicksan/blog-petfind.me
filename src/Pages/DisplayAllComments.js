@@ -17,15 +17,13 @@ const DisplayAllCommennts = () => {
 	const paginate = pageNumber => setCurrentPage(pageNumber);
 		
 	return (
-		<>
-			<div className="wrap">
-				<div className="grid-container">
-					<Comments comments={currentComments}/>
-					<CommentsPagination 
-						commentsPerPage={commentsPerPage} 
-						totalComments={comments.length} 
-						paginate={paginate} />
-				</div>
+		<>	
+			<div className='container mt-5'>
+				<Comments comments={currentComments}/>
+				<CommentsPagination 
+					commentsPerPage={commentsPerPage} 
+					totalComments={comments.length} 
+					paginate={paginate} />
 			</div>
 		</>
 	);
