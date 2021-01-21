@@ -1,54 +1,50 @@
-import React from "react";
-import { Card } from 'react-bootstrap';
-import { jsonUsers } from "../Jsons/users";
+import { useState, useEffect } from 'react';
+import Users from "./Users";
+import Pagination from "./Pagination";
 
-export default class DisplayAllUsers extends React.Component {
-	render() {
-		return (
-			<>         
-                {jsonUsers.map((userData) => {
-                    return (
-                        <Card className="card" key={userData.id}>
-                            <Card.Header><span className="bold">User Information: </span></Card.Header>
-                            <Card.Body>
-                                <Card.Text className="">
-                                    <span className="bold">Name: </span>{userData.name}
-                                </Card.Text>
-                                <Card.Text className="">
-                                    <span className="bold">Username: </span>{userData.username}
-                                </Card.Text>
-                                <Card.Text className="">
-                                    <span className="bold">Email: </span>{userData.email}
-                                </Card.Text>
-                                <Card.Text className="">
-                                    <span className="bold">Address: </span>
-                                </Card.Text>
-                                <Card.Text className="address">
-                                    <span className="bold">Street: </span>{userData.address.street}
-                                </Card.Text>
-                                <Card.Text className="address">
-                                    <span className="bold">Suite: </span>{userData.address.suite}
-                                </Card.Text>
-                                <Card.Text className="address">
-                                    <span className="bold">City: </span>{userData.address.city}
-                                </Card.Text>
-                                <Card.Text className="address">
-                                    <span className="bold">Zipcode: </span>{userData.address.zipcode}
-                                </Card.Text>
-                                <Card.Text className="address">
-                                    <span className="bold">Geolocation:</span>
-                                </Card.Text>
-                                <Card.Text className="geo">
-                                    <span className="bold">Latitude: </span>{userData.address.geo.lat}
-                                </Card.Text>    
-                                <Card.Text className="geo">
-                                    <span className="bold">Longitude: </span>{userData.address.geo.lng}
-                                </Card.Text> 
-                            </Card.Body>
-                        </Card>
-                    );
-                })}
-            </>
-		);
-	}
+const DisplayAllUsers = () => {
+    const [users, setUsers] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [usersPerPage] = useState(10);
+
+	//Get current users
+	const indexOfLastUser = currentPage * usersPerPage;
+	const indexOfFirstUser = indexOfLastUser - usersPerPage;
+	const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+  
+	//Change page
+	const paginate = pageNumber => setCurrentPage(pageNumber);
+
+	//Getting all users from the server
+	useEffect(() => {
+		const getUsers = async () => {
+		    const usersFromServer = await fetchUsers()
+		    setUsers(usersFromServer)
+		}
+	
+		getUsers()
+	}, [])
+
+	// Fetch users
+	const fetchUsers = async () => {
+		const res = await fetch('http://localhost:5000/users')
+		const data = await res.json()
+	
+		return data
+    }
+    
+	return (
+		<>         
+            <div className='container mt-5'>
+				<Users users={currentUsers}/>
+				<Pagination 
+					postsPerPage={usersPerPage} 
+					totalPosts={users.length} 
+					paginate={paginate} />
+			</div>
+        </>
+	);
+
 }
+
+export default DisplayAllUsers;
