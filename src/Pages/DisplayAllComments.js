@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CommentsPagination from '../Pages/CommentsPagination'
 import Comments from "./Comments";
 
