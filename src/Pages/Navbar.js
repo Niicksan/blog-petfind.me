@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Route, Switch, BrowserRouter, HashRouter, Link} from 'react-router-dom';
-import Login from './Login'
-import Register from './Register'
-import DisplayAllUsers from './DisplayAllUsers';
-import NotFound from "./NotFound";
-import DisplayAllPosts from './DisplayAllPosts';
-import DisplayAllComments from './DisplayAllComments';
+import { HashRouter, Link} from 'react-router-dom';
+// import Login from './Login'
+// import Register from './Register'
+// import DisplayAllUsers from './DisplayAllUsers';
+// import NotFound from "./NotFound";
+// import DisplayAllPosts from './DisplayAllPosts';
+// import DisplayAllComments from './DisplayAllComments';
 
 const Navibar =() => {
     return <HashRouter>
@@ -23,10 +23,10 @@ const Navibar =() => {
               <NavDropdown.Item><Link to="/display-all-post-comments">Display all comments</Link></NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav className="mr-right">
+          {/* <Nav className="mr-right">
             <Nav.Link href='/login'>Login</Nav.Link>
             <Nav.Link href='/register'>Register</Nav.Link>
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Navbar>
 
