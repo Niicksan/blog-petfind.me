@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Posts from '../Pages/Posts'
 import Pagination from '../Pages/Pagination'
-import { jsonPosts } from "../Jsons/posts.json";
 
 const DisplayAllPosts = () => {
 	const [posts, setPosts] = useState([]);
