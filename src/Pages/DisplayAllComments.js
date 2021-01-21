@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CommentsPagination from '../Pages/CommentsPagination'
-import Comments from "../Pages/Comments";
-import { jsonComments } from "../Jsons/comments.json";
+import Comments from "./Comments";
 
 const DisplayAllCommennts = () => {
-	const [comments] = useState(jsonComments); 
+	const [comments, setComments] = useState([]); 
 	const [currentPage, setCurrentPage] = useState(1);
 	const [commentsPerPage] = useState(25);
+
+	console.log(comments);
 		
 	//Get current comments
 	const indexOfLastComment = currentPage * commentsPerPage;
@@ -15,6 +16,16 @@ const DisplayAllCommennts = () => {
 
 	//Change page
 	const paginate = pageNumber => setCurrentPage(pageNumber);
+
+	//Getting all comments from the server
+	useEffect(() => {
+		const getComments = async () => {
+		  const commentsFromServer = await fetchComments()
+		  setComments(commentsFromServer)
+		}
+	
+		getComments()
+	}, [])
 
 	// Fetch Comments
 	const fetchComments = async () => {
