@@ -14,7 +14,7 @@ const Post = ({ title, body, author }) => {
                         {body}
 			        </Card.Text>
 			    	<Card.Text className="">
-			    		Posted by: {author}
+                    <span className="bold">Posted by: </span> {author}
 			    	</Card.Text>
 			    </Card.Body>
             </Card>
